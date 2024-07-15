@@ -26,6 +26,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/projects/{project:slug}', 'showProject')->name('projects.show');
 
     Route::get('/blogs', 'blogs')->name('blogs.index');
+    Route::get('/blogs/category/{category:slug}', 'blogsByCategory')->name('blogs.category');
     Route::get('/blogs/{post:slug}', 'showBlog')->name('blogs.show');
 
     Route::get('/contact-us', 'contact')->name('contact');

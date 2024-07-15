@@ -148,6 +148,25 @@ class HomeController extends Controller
         ]);
     }
 
+    /**
+     * Show the blogs by category page.
+     * @param Category $category
+     * @return View
+     */
+    public function blogsByCategory(Category $category): View
+    {
+        return view('blogs.index', [
+            'posts' => $category->posts()->paginate(3),
+            'categories' => Category::all(),
+            'recentProjects' => Project::published()->recent()->limit(6)->get(),
+        ]);
+    }
+
+    /**
+     * Show the blog details page.
+     * @param Post $post
+     * @return View
+     */
     public function showBlog(Post $post): View
     {
         return view('blogs.show', [

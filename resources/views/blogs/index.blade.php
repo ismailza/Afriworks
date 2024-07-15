@@ -29,8 +29,8 @@
                                 </h3>
                                 <div class="blog-meta">
                                     <ul class="list-unstyled">
-                                        <li><a href="#" tabindex="0"> By admin</a></li>
-                                        <li><a href="#" tabindex="0"> {{ $post->category->name }}</a></li>
+                                        <li><a href="{{ route('about') }}" tabindex="0"> By admin</a></li>
+                                        <li><a href="{{ route('blogs.category', $post->category->slug) }}" tabindex="0"> {{ $post->category->name }}</a></li>
                                     </ul>
                                 </div>
                                 <p>{{ $post->excerpt }}</p>
@@ -45,6 +45,7 @@
                             </div>
                         </div>
                     @empty
+                        <div class="alert alert-warning">No blog posts found.</div>
                     @endforelse
                     </div>
 
@@ -83,7 +84,7 @@
                             </div>
                             <ul class="list-body list-unstyled">
                             @foreach($categories as $category)
-                                <li><a>{{ $category->name }}</a></li>
+                                <li><a href="{{ route('blogs.category', $category->slug) }}">{{ $category->name }}</a></li>
                             @endforeach
                             </ul>
                         </div>

@@ -23,9 +23,9 @@
                         </div>
                         <div class="blog-meta">
                             <ul class="list-unstyled">
-                                <li><a href="#" tabindex="0"> By admin</a></li>
+                                <li><a href="{{ route('about') }}" tabindex="0"> By admin</a></li>
                                 @if($post->category)
-                                <li><a>{{ $post->category->name }}</a></li>
+                                <li><a href="{{ route('blogs.category', $post->category->slug) }}">{{ $post->category->name }}</a></li>
                                 @endif
                             </ul>
                         </div>
