@@ -34,6 +34,11 @@
         @yield('content')
     </main>
 
+    <!-- Whatsapp chat -->
+    <a href="https://wa.me/{{ setting('contact.whatsapp') }}" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- scroll top part start -->
     <button class="scroll-to-top">
         <i class="fas fa-angle-up"></i>
