@@ -4472,7 +4472,7 @@ p {
 
 /* scroll top part start */
 
-.scroll-to-top {
+.scroll-to-top, .whatsapp-btn {
 	display: inline-block;
 	background-color: var(--primary);
 	width: 40px;
@@ -4494,7 +4494,7 @@ p {
 	transition: var(--transision);
 }
 
-.scroll-to-top::after {
+.scroll-to-top::after, .whatsapp-btn::after {
 	position: absolute;
 	z-index: -1;
 	content: '';
@@ -4510,6 +4510,12 @@ p {
 	opacity: 1;
 	visibility: visible;
 	bottom: 30px;
+}
+
+.whatsapp-btn.show {
+    opacity: 1;
+    visibility: visible;
+    bottom: 80px;
 }
 
 /*=============================

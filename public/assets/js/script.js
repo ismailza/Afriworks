@@ -346,6 +346,7 @@
 
 	$(window).scroll(function () {
 		btn.toggleClass("show", $(window).scrollTop() > 300);
+        $(".whatsapp-btn")?.toggleClass("show", $(window).scrollTop() > 300);
 	});
 
 	btn.click(function (e) {
