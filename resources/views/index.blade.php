@@ -166,6 +166,57 @@
     <!-- counter part start -->
     @include('partials.counter')
 
+    <!-- active employee part start -->
+    <section class="active-employee-area-two">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="section-title-one">
+                        <span class="sub-title uppercase no-after">Équipe active</span>
+                        <h2 class="title">Votre partenaire de confiance </h2>
+                    </div>
+                    <div class="employee-info">
+                        <p>Chez Afriworks, notre équipe d'experts est dédiée à fournir des solutions de construction fiables et innovantes pour tous vos besoins.</p>
+                        <a href="{{ route('about') }}" class="common-btn uppercase">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                        <h1 class="team-member">ÉQUIPE ACTIVE</h1>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row active-employes-slider-two">
+                        @foreach($teamMembers as $member)
+                        <div class="col-lg-4">
+                            <div class="active-employes-item-two">
+                                <div class="image">
+                                    <div class="d-block w-100">
+                                        <img src="{{ asset('storage/'. $member->photo) }}" alt="{{ $member->name }}" class="img-fluid w-100">
+                                    </div>
+                                </div>
+                                <div class="text text-center">
+                                    <div class="social-icon">
+                                        <ul class="list-unstyled">
+                                            @if($member->phone)
+                                            <li><a href="tel:{{ $member->phone }}"><i class="fa fa-solid fa-phone"></i></a></li>
+                                            @endif
+                                            @if($member->email)
+                                            <li><a href="mailto:{{ $member->email }}"><i class="fa fa-solid fa-envelope"></i></a></li>
+                                            @endif
+                                            @if($member->linkedin)
+                                            <li><a href="{{ $member->linkedin }}"><i class="fab fa-linkedin-in"></i></a></li>
+                                            @endif
+                                        </ul>
+                                    </div>
+                                    <h4 class="employee-title">{{ $member->name }}</h4>
+                                    <p>{{ $member->position }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- get updates part start -->
     <section class="get-updates-area-one">
         <div class="update-area-bg-one">
