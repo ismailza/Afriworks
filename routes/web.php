@@ -37,3 +37,10 @@ Route::controller(HomeController::class)->group(function () {
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+/* storage link in host */
+Route::get('/storage-link', function () {
+    $targetFolder =  $_SERVER['DOCUMENT_ROOT'].'/myapp/storage/app/public';
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage';
+    symlink($targetFolder,$linkFolder);
+});
