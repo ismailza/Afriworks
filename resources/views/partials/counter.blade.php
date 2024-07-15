@@ -7,8 +7,8 @@
                         <img src="{{ asset('assets/img/counter/counter-1.svg') }}" alt="feature-1">
                     </div>
                     <div class="info">
-                        <h2 class="counter-number"><span class="odometer" data-count="200"></span>+</h2>
-                        <p>Winning award</p>
+                        <h2 class="counter-number"><span class="odometer" data-count="{{ $counter['servicesCount'] }}"></span>+</h2>
+                        <p>Service</p>
                     </div>
                 </div>
             </div>
@@ -18,8 +18,8 @@
                         <img src="{{ asset('assets/img/counter/counter-2.svg') }}" alt="feature-2">
                     </div>
                     <div class="info">
-                        <h2 class="counter-number"><span class="odometer" data-count="550"></span>+</h2>
-                        <p>Project Done</p>
+                        <h2 class="counter-number"><span class="odometer" data-count="{{ $counter['projectsCount'] }}"></span>+</h2>
+                        <p>Projet</p>
                     </div>
                 </div>
             </div>
@@ -29,8 +29,8 @@
                         <img src="{{ asset('assets/img/counter/counter-3.svg') }}" alt="feature-3">
                     </div>
                     <div class="info">
-                        <h2 class="counter-number"><span class="odometer" data-count="100"></span>+</h2>
-                        <p>Clients Review</p>
+                        <h2 class="counter-number"><span class="odometer" data-count="{{ $counter['testimonialsCount'] }}"></span>+</h2>
+                        <p>Témoignage</p>
                     </div>
                 </div>
             </div>
@@ -40,8 +40,8 @@
                         <img src="{{ asset('assets/img/counter/counter-4.svg') }}" alt="feature-4">
                     </div>
                     <div class="info">
-                        <h2 class="counter-number"><span class="odometer" data-count="350"></span>+</h2>
-                        <p>Team Member</p>
+                        <h2 class="counter-number"><span class="odometer" data-count="{{ $counter['teamMembersCount'] }}"></span>+</h2>
+                        <p>Membre</p>
                     </div>
                 </div>
             </div>
