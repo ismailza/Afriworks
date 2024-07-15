@@ -13,6 +13,7 @@ use App\Models\Banner;
 use App\Models\Contact;
 use App\Models\Project;
 use App\Models\Service;
+use App\Models\TeamMember;
 use App\Models\Testimonial;
 use App\Models\WorkingProcessStep;
 use Illuminate\Contracts\View\View;
@@ -34,8 +35,15 @@ class HomeController extends Controller
             'about' => About::first(),
             'services' => Service::published()->recent()->limit(6)->get(),
             'projects' => Project::published()->recent()->limit(6)->get(),
+            'teamMembers' => TeamMember::all(),
             'testimonials' => Testimonial::Active()->orderBy('created_at', 'desc')->get(),
             'posts' => Post::published()->orderBy('created_at', 'desc')->limit(6)->get(),
+            'counter' => [
+                'servicesCount' => Service::count(),
+                'projectsCount' => Project::count(),
+                'teamMembersCount' => TeamMember::count(),
+                'testimonialsCount' => Testimonial::count(),
+            ]
         ]);
     }
 
@@ -48,7 +56,14 @@ class HomeController extends Controller
         return view('about', [
             'about' => About::first(),
             'workingProcessSteps' => WorkingProcessStep::orderBy('step_number')->get(),
+            'teamMembers' => TeamMember::all(),
             'testimonials' => Testimonial::Active()->orderBy('created_at', 'desc')->get(),
+            'counter' => [
+                'servicesCount' => Service::count(),
+                'projectsCount' => Project::count(),
+                'teamMembersCount' => TeamMember::count(),
+                'testimonialsCount' => Testimonial::count(),
+            ]
         ]);
     }
 
