@@ -1,13 +1,13 @@
 @extends('layout.layout')
 
-@section('title', setting('site.title') . ' | Services')
+@section('title', setting('site.title') . ' | '. GoogleTranslate::trans('Services', app()->getLocale()))
 
 @section('content')
 
     <!-- breadcrumb part start -->
-    <x-breadcrumb title="Services">
-        <li><a href="/">Accueil</a></li>
-        <li>Services</li>
+    <x-breadcrumb title="{{ GoogleTranslate::trans('Services', app()->getLocale()) }}">
+        <li><a href="/">{{ GoogleTranslate::trans('Accueil', app()->getLocale()) }}</a></li>
+        <li>{{ GoogleTranslate::trans('Services', app()->getLocale()) }}</li>
     </x-breadcrumb>
 
     <!-- services part start -->
@@ -27,16 +27,16 @@
                         </div>
                         <div class="text">
                             <h4 class="title">
-                                <a href="{{ route('services.show', $service->slug) }}" title="{{ $service->name }}">{{ $service->name }}</a>
+                                <a href="{{ route('services.show', $service->slug) }}" title="{{ $service->name }}">{{ GoogleTranslate::trans($service->name, app()->getLocale()) }}</a>
                             </h4>
-                            <p>{{ $service->excerpt }}</p>
-                            <a href="{{ route('services.show', $service->slug) }}" class="read-more uppercase" title="{{ $service->name }}">En Savoir Plus <i class="fas fa-arrow-right"></i></a>
+                            <p>{{ GoogleTranslate::trans($service->excerpt, app()->getLocale()) }}</p>
+                            <a href="{{ route('services.show', $service->slug) }}" class="read-more uppercase" title="{{ $service->name }}">{{ GoogleTranslate::trans('En Savoir Plus', app()->getLocale()) }} <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
             @empty
                 <div class="col-lg-12">
-                    <div class="alert alert-warning">Aucun service disponible pour le moment</div>
+                    <div class="alert alert-warning">{{ GoogleTranslate::trans('Aucun service disponible pour le moment', app()->getLocale()) }}</div>
                 </div>
             @endforelse
             </div>

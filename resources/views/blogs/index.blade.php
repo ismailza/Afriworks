@@ -1,13 +1,13 @@
 @extends('layout.layout')
 
-@section('title', setting('site.title') . ' | Blogs')
+@section('title', setting('site.title') . ' | ' . GoogleTranslate::trans('Blogs', app()->getLocale()))
 
 @section('content')
 
     <!-- breadcrumb part start -->
     <x-breadcrumb title="Blogs">
-        <li><a href="/">Home</a></li>
-        <li>Blogs</li>
+        <li><a href="/">{{ GoogleTranslate::trans('Accueil', app()->getLocale()) }}</a></li>
+        <li>{{ GoogleTranslate::trans('Blogs', app()->getLocale()) }}</li>
     </x-breadcrumb>
 
     <!-- blog classic part start -->
@@ -17,7 +17,7 @@
                 <div class="col-lg-8">
                     <div class="blog-classic-main">
                     @forelse($posts as $post)
-                        <div class="blog-classic-item" data-title="{{ $post->title }}" data-category="{{ $post->category->name }}" data-excerpt="{{ $post->excerpt }}">
+                        <div class="blog-classic-item" data-title="{{ GoogleTranslate::trans($post->title, app()->getLocale()) }}" data-category="{{ GoogleTranslate::trans($post->category->name, app()->getLocale()) }}" data-excerpt="{{ GoogleTranslate::trans($post->excerpt, app()->getLocale()) }}">
                             <div class="blog-image">
                                 <a href="{{ route('blogs.show', $post->slug) }}" title="{{ $post->title }}" class="d-block w-100">
                                     <img src="{{ asset('storage/'. $post->image) }}" alt="{{ $post->title }}" class="img-fluid w-100">
@@ -25,15 +25,15 @@
                             </div>
                             <div class="blog-info">
                                 <h3 class="title">
-                                    <a href="{{ route('blogs.show', $post->slug) }}" title="{{ $post->title }}">{{ $post->title }}</a>
+                                    <a href="{{ route('blogs.show', $post->slug) }}" title="{{ $post->title }}">{{ GoogleTranslate::trans($post->title, app()->getLocale()) }}</a>
                                 </h3>
                                 <div class="blog-meta">
                                     <ul class="list-unstyled">
                                         <li><a href="{{ route('about') }}" tabindex="0"> By admin</a></li>
-                                        <li><a href="{{ route('blogs.category', $post->category->slug) }}" tabindex="0"> {{ $post->category->name }}</a></li>
+                                        <li><a href="{{ route('blogs.category', $post->category->slug) }}" tabindex="0"> {{ GoogleTranslate::trans($post->category->name, app()->getLocale()) }}</a></li>
                                     </ul>
                                 </div>
-                                <p>{{ $post->excerpt }}</p>
+                                <p>{{ GoogleTranslate::trans($post->excerpt, app()->getLocale()) }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="learn-more">
                                         <a href="{{ route('blogs.show', $post->slug) }}" class="common-btn uppercase">En savoir plus <i class="fas fa-plus"></i></a>
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                     @empty
-                        <div class="alert alert-warning">No blog posts found.</div>
+                        <div class="alert alert-warning">{{ GoogleTranslate::trans('No blog posts found.', app()->getLocale()) }}</div>
                     @endforelse
                     </div>
 
@@ -80,17 +80,17 @@
                         </div>
                         <div class="blog-widget">
                             <div class="title-block">
-                                <h4 class="title">Categories</h4>
+                                <h4 class="title">{{ GoogleTranslate::trans('Categories', app()->getLocale()) }}</h4>
                             </div>
                             <ul class="list-body list-unstyled">
                             @foreach($categories as $category)
-                                <li><a href="{{ route('blogs.category', $category->slug) }}">{{ $category->name }}</a></li>
+                                <li><a href="{{ route('blogs.category', $category->slug) }}">{{ GoogleTranslate::trans($category->name, app()->getLocale()) }}</a></li>
                             @endforeach
                             </ul>
                         </div>
                         <div class="blog-widget">
                             <div class="title-block">
-                                <h4 class="title">Projets récents</h4>
+                                <h4 class="title">{{ GoogleTranslate::trans('Projets récents', app()->getLocale()) }}</h4>
                             </div>
                             <div class="popular-post-main">
                             @foreach($recentProjects as $project)
@@ -103,7 +103,7 @@
                                     <div class="text">
                                         <p><i class="fas fa-calendar-alt"></i> {{ $project->created_at->format('d F Y') }}</p>
                                         <h6 class="blog-title">
-                                            <a href="{{ route('projects.show', $project->slug) }}" class="d-block w-100" title="{{ $project->title }}">{{ $project->name }}</a>
+                                            <a href="{{ route('projects.show', $project->slug) }}" class="d-block w-100" title="{{ $project->title }}">{{ GoogleTranslate::trans($project->name, app()->getLocale()) }}</a>
                                         </h6>
                                     </div>
                                 </div>

@@ -8,7 +8,7 @@
                     </div>
                     <div class="info">
                         <h2 class="counter-number"><span class="odometer" data-count="{{ $counter['servicesCount'] }}"></span>+</h2>
-                        <p>Service</p>
+                        <p>{{ GoogleTranslate::trans('Service', app()->getLocale()) }}</p>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                     </div>
                     <div class="info">
                         <h2 class="counter-number"><span class="odometer" data-count="{{ $counter['projectsCount'] }}"></span>+</h2>
-                        <p>Projet</p>
+                        <p>{{ GoogleTranslate::trans('Projet', app()->getLocale()) }}</p>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="info">
                         <h2 class="counter-number"><span class="odometer" data-count="{{ $counter['testimonialsCount'] }}"></span>+</h2>
-                        <p>Témoignage</p>
+                        <p>{{ GoogleTranslate::trans('Témoignage', app()->getLocale())}}</p>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="info">
                         <h2 class="counter-number"><span class="odometer" data-count="{{ $counter['teamMembersCount'] }}"></span>+</h2>
-                        <p>Membre</p>
+                        <p>{{ GoogleTranslate::trans('Membre', app()->getLocale()) }}</p>
                     </div>
                 </div>
             </div>

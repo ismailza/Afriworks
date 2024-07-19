@@ -11,7 +11,7 @@
                                 </a>
                             </div>
                             <div class="footer-content">
-                                <p>{{ setting('site.description') }}</p>
+                                <p>{{ GoogleTranslate::trans(setting('site.description'), app()->getLocale()) }}</p>
                                 <div class="social">
                                     <ul class="list-unstyled">
                                         @if(setting('social-links.facebook_url'))<li><a href="{{ setting('social-links.facebook_url') }}"><i class="fab fa-facebook-f"></i></a></li>@endif
@@ -24,20 +24,20 @@
                     </div>
                     <div class="col-sm-6 col-lg-4">
                         <div class="footer-widget ms-5">
-                            <h4 class="footer-title uppercase">Liens rapides</h4>
+                            <h4 class="footer-title uppercase">{{ GoogleTranslate::trans('Liens rapides', app()->getLocale()) }}</h4>
                             <div class="footer-link">
                                 <ul>
-                                    <li><a href="{{ route('about') }}" title="À propos de nous"><i class="fas fa-angle-right"></i> À propos de nous</a></li>
-                                    <li><a href="{{ route('services.index') }}" title="Services"><i class="fas fa-angle-right"></i> Services</a></li>
-                                    <li><a href="{{ route('projects.index') }}" title="Projets"><i class="fas fa-angle-right"></i> Projets</a></li>
-                                    <li><a href="{{ route('blogs.index') }}" title="Blogs"><i class="fas fa-angle-right"></i> Blogs</a></li>
+                                    <li><a href="{{ route('about') }}" title="À propos de nous"><i class="fas fa-angle-right"></i> {{ GoogleTranslate::trans('À propos de nous', app()->getLocale()) }}</a></li>
+                                    <li><a href="{{ route('services.index') }}" title="Services"><i class="fas fa-angle-right"></i> {{ GoogleTranslate::trans('Services', app()->getLocale()) }}</a></li>
+                                    <li><a href="{{ route('projects.index') }}" title="Projets"><i class="fas fa-angle-right"></i> {{ GoogleTranslate::trans('Projets', app()->getLocale()) }}</a></li>
+                                    <li><a href="{{ route('blogs.index') }}" title="Blogs"><i class="fas fa-angle-right"></i> {{ GoogleTranslate::trans('Blogs', app()->getLocale()) }}</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-4">
                         <div class="footer-widget">
-                            <h4 class="footer-title uppercase">Contactez-nous</h4>
+                            <h4 class="footer-title uppercase">{{ GoogleTranslate::trans('Contactez-nous', app()->getLocale()) }}</h4>
                             <div class="footer-address">
                                 <ul>
                                     <li class="d-flex">
@@ -80,7 +80,7 @@
                     <div class="col-12 col-lg-6">
                         <div class="links text-lg-end">
                             <ul>
-                                <li><a href="{{ route('contact') }}" title="Contactez-nous">Contactez-nous</a></li>
+                                <li><a href="{{ route('contact') }}" title="Contactez-nous">{{ GoogleTranslate::trans('Contactez-nous', app()->getLocale()) }}</a></li>
                             </ul>
                         </div>
                     </div>

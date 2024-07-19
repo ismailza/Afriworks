@@ -18,10 +18,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="banner-info">
-                        @if($banner->sub_title)<span class="sub-title uppercase wow fadeInLeft" data-wow-delay=".2s">{{ $banner->sub_title }}</span>@endif
-                        <h2 class="banner-title wow fadeInLeft" data-wow-delay=".4s">{{ $banner->title }}</h2>
-                        @if($banner->excerpt)<p class="wow fadeInLeft" data-wow-delay=".6s">{{ $banner->excerpt }}</p>@endif
-                        @if($banner->link)<a href="{{ $banner->link }}" title="{{ $banner->title }}" class="common-btn uppercase wow fadeInLeft" data-wow-delay=".8s">{{ $banner->button_text ?? 'Voir plus' }} <i class="fas fa-arrow-right"></i></a>@endif
+                        @if($banner->sub_title)<span class="sub-title uppercase wow fadeInLeft" data-wow-delay=".2s">{{ GoogleTranslate::trans($banner->sub_title, app()->getLocale()) }}</span>@endif
+                        <h2 class="banner-title wow fadeInLeft" data-wow-delay=".4s">{{ GoogleTranslate::trans($banner->title, app()->getLocale()) }}</h2>
+                        @if($banner->excerpt)<p class="wow fadeInLeft" data-wow-delay=".6s">{{ GoogleTranslate::trans($banner->excerpt, app()->getLocale()) }}</p>@endif
+                        @if($banner->link)<a href="{{ $banner->link }}" title="{{ $banner->title }}" class="common-btn uppercase wow fadeInLeft" data-wow-delay=".8s">{{ GoogleTranslate::trans($banner->button_text ?? 'Voir plus', app()->getLocale()) }} <i class="fas fa-arrow-right"></i></a>@endif
                     </div>
                 </div>
                 <div class="col-lg-6 align-self-center">
@@ -54,12 +54,12 @@
                 <div class="col-lg-6">
                     <div class="about-text">
                         <div class="section-title-one">
-                            <span class="sub-title uppercase no-after">À Propos de Nous</span>
-                            <h2 class="title">{{ $about->title }}</h2>
+                            <span class="sub-title uppercase no-after">{{ GoogleTranslate::trans('À Propos de Nous', app()->getLocale()) }}</span>
+                            <h2 class="title">{{ GoogleTranslate::trans($about->title, app()->getLocale()) }}</h2>
                         </div>
                         <div class="about-details">
-                            {!! $about->description !!}
-                            <a href="{{ route('about') }}" class="common-btn uppercase" title="À propos de nous">learn More <i class="fas fa-plus"></i></a>
+                            {!! GoogleTranslate::trans($about->description, app()->getLocale()) !!}
+                            <a href="{{ route('about') }}" class="common-btn uppercase" title="À propos de nous">{{ GoogleTranslate::trans('En savoir plus', app()->getLocale()) }}} <i class="fas fa-plus"></i></a>
                         </div>
                     </div>
                 </div>
@@ -74,10 +74,10 @@
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <div class="section-title-one text-center">
                         <span class="sub-title uppercase">
-                            Nos Services
+                            {{ GoogleTranslate::trans('Nos Services', app()->getLocale()) }}
                         </span>
                         <h2 class="title">
-                            Des Solutions Complètes pour Chaque Étape de Votre Projet
+                            {{ GoogleTranslate::trans('Des Solutions Complètes pour Chaque Étape de Votre Projet', app()->getLocale()) }}
                         </h2>
                     </div>
                 </div>
@@ -98,14 +98,14 @@
                             <h4 class="title">
                                 <a href="{{ route('services.show', $service->slug) }}">{{ $service->name }}</a>
                             </h4>
-                            <p>{{ $service->excerpt }}</p>
-                            <a href="{{ route('services.show', $service->slug) }}" class="read-more uppercase">En Savoir Plus <i class="fas fa-arrow-right"></i></a>
+                            <p>{{ GoogleTranslate::trans($service->excerpt, app()->getLocale()) }}</p>
+                            <a href="{{ route('services.show', $service->slug) }}" class="read-more uppercase">{{ GoogleTranslate::trans('En Savoir Plus', app()->getLocale()) }} <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
             @empty
                 <div class="col-lg-12">
-                    <div class="alert alert-warning">Aucun service disponible pour le moment</div>
+                    <div class="alert alert-warning">{{ GoogleTranslate::trans('Aucun service disponible pour le moment', app()->getLocale()) }}</div>
                 </div>
             @endforelse
             </div>
@@ -120,10 +120,10 @@
                     <div class="col-sm-10 col-md-8 col-lg-6">
                         <div class="section-title-one">
                             <span class="sub-title uppercase wow fadeInUp" data-wow-delay=".2s">
-                                Réalisations récentes
+                                {{ GoogleTranslate::trans('Réalisations récentes', app()->getLocale()) }}
                             </span>
                             <h2 class="title text-white wow fadeInUp" data-wow-delay=".4s">
-                                Découvrez Nos Projets Réalisés
+                                {{ GoogleTranslate::trans('Découvrez Nos Projets Réalisés', app()->getLocale()) }}
                             </h2>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
                                     <h4 class="title">
                                         <a href="{{ route('projects.show', $project->slug) }}" title="{{ $project->name }}">{{ $project->name }}</a>
                                     </h4>
-                                    <p>{{ $project->excerpt }}</p>
+                                    <p>{{ GoogleTranslate::trans($project->excerpt, app()->getLocale()) }}</p>
                                 </div>
                                 <div class="plus">
                                     <a href="{{ route('projects.show', $project->slug) }}" title="{{ $project->name }}"><i class="fas fa-plus"></i></a>
@@ -155,7 +155,7 @@
                     </div>
                 @empty
                     <div class="col-lg-12">
-                        <div class="alert alert-warning">Aucun projet disponible pour le moment</div>
+                        <div class="alert alert-warning">{{ GoogleTranslate::trans('Aucun projet disponible pour le moment', app()->getLocale()) }}</div>
                     </div>
                 @endforelse
                 </div>
@@ -172,13 +172,13 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="section-title-one">
-                        <span class="sub-title uppercase no-after">Équipe active</span>
-                        <h2 class="title">Votre partenaire de confiance </h2>
+                        <span class="sub-title uppercase no-after">{{ GoogleTranslate::trans('Équipe active', app()->getLocale()) }}</span>
+                        <h2 class="title">{{ GoogleTranslate::trans('Votre partenaire de confiance', app()->getLocale()) }} </h2>
                     </div>
                     <div class="employee-info">
-                        <p>Chez Afriworks, notre équipe d'experts est dédiée à fournir des solutions de construction fiables et innovantes pour tous vos besoins.</p>
-                        <a href="{{ route('about') }}" class="common-btn uppercase">En savoir plus <i class="fas fa-arrow-right"></i></a>
-                        <h1 class="team-member">ÉQUIPE ACTIVE</h1>
+                        <p>{{ GoogleTranslate::trans('Chez Afriworks, notre équipe d\'experts est dédiée à fournir des solutions de construction fiables et innovantes pour tous vos besoins.', app()->getLocale()) }}</p>
+                        <a href="{{ route('about') }}" class="common-btn uppercase">{{ GoogleTranslate::trans('En savoir plus', app()->getLocale()) }} <i class="fas fa-arrow-right"></i></a>
+                        <h1 class="team-member">{{ GoogleTranslate::trans('ÉQUIPE ACTIVE', app()->getLocale()) }}</h1>
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -224,8 +224,8 @@
                 <div class="row">
                     <div class="col-lg-5 col-xl-4">
                         <div class="get-updates-info">
-                            <h2 class="text-white title">Ne manquez aucune mise à jour importante</h2>
-                            <p class="text-white">Soyez toujours au courant des dernières nouvelles et des développements majeurs de notre projet.</p>
+                            <h2 class="text-white title">{{ GoogleTranslate::trans('Ne manquez aucune mise à jour importante', app()->getLocale()) }}</h2>
+                            <p class="text-white">{{ GoogleTranslate::trans('Soyez toujours au courant des dernières nouvelles et des développements majeurs de notre projet.', app()->getLocale()) }}</p>
                         </div>
                     </div>
                     <div class="col-lg-5 col-xl-4 ms-auto align-self-center">
@@ -234,7 +234,7 @@
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div class="text">
-                                <h4 class="title">Contactez-nous</h4>
+                                <h4 class="title">{{ GoogleTranslate::trans('Contactez-nous', app()->getLocale()) }}</h4>
                                 <h3 class="number"><a href="tel:{{ setting('contact.phone') }}">{{ setting('contact.phone') }}</a></h3>
                             </div>
                         </div>
@@ -250,8 +250,8 @@
             <div class="row">
                 <div class="col-lg-6 mx-auto">
                     <div class="section-title-one text-center">
-                        <span class="sub-title uppercase">Témoignages des clients</span>
-                        <h2 class="title">Des constructions qui dépassent les attentes</h2>
+                        <span class="sub-title uppercase">{{ GoogleTranslate::trans('Témoignages des clients', app()->getLocale()) }}</span>
+                        <h2 class="title">{{ GoogleTranslate::trans('Des constructions qui dépassent les attentes', app()->getLocale()) }}</h2>
                     </div>
                 </div>
             </div>
@@ -300,8 +300,8 @@
                         <div class="col-lg-6 align-self-center">
                             <div class="text">
                                 <div class="section-title-one">
-                                    <span class="sub-title uppercase white">Contactez-nous</span>
-                                    <h2 class="title white">Construire avec passion, précision et fierté</h2>
+                                    <span class="sub-title uppercase white">{{ GoogleTranslate::trans('Contactez-nous', app()->getLocale()) }}</span>
+                                    <h2 class="title white">{{ GoogleTranslate::trans('Construire avec passion, précision et fierté', app()->getLocale()) }}</h2>
                                 </div>
                                 <div class="messages-box">
                                     @include('partials.contact-form')
@@ -321,8 +321,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="section-title-one">
-                            <span class="sub-title uppercase no-after">Blog et Actualités</span>
-                            <h2 class="title">Solutions de construction adaptées à vos besoins</h2>
+                            <span class="sub-title uppercase no-after">{{ GoogleTranslate::trans('Blog et Actualités', app()->getLocale()) }}</span>
+                            <h2 class="title">{{ GoogleTranslate::trans('Solutions de construction adaptées à vos besoins', app()->getLocale()) }}</h2>
                         </div>
                     </div>
                 </div>
@@ -353,7 +353,7 @@
                     </div>
                 @empty
                     <div class="col-lg-12">
-                        <div class="alert alert-warning">Aucun article disponible pour le moment</div>
+                        <div class="alert alert-warning">{{ GoogleTranslate::trans('Aucun article disponible pour le moment', app()->getLocale()) }}</div>
                     </div>
                 @endforelse
                 </div>
