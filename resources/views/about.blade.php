@@ -1,13 +1,13 @@
 @extends('layout.layout')
 
-@section('title', setting('site.title') . ' | À Propos de Nous')
+@section('title', setting('site.title') . ' | ' . GoogleTranslate::trans('About Us', app()->getLocale()))
 
 @section('content')
 
     <!-- breadcrumb part start -->
-    <x-breadcrumb title="À Propos de Nous">
-        <li><a href="/">Accueil</a></li>
-        <li>À Propos de Nous</li>
+    <x-breadcrumb title="{{ GoogleTranslate::trans('About Us', app()->getLocale()) }}">
+        <li><a href="/">{{ GoogleTranslate::trans('Accueil', app()->getLocale()) }}</a></li>
+        <li>{{ GoogleTranslate::trans('About Us', app()->getLocale()) }}</li>
     </x-breadcrumb>
 
     <!-- about us part start -->
@@ -22,8 +22,8 @@
                         <img src="{{ asset('storage/'. $about->image2) }}" alt="about-two-img-2" class="img-fluid w-100">
                         <div class="experiance-outside">
                             <div class="experiance-box">
-                                <h2 class="year">25</h2>
-                                <h6 class="experiance">Years Of experience</h6>
+                                <h2 class="year">{{ $about->badge_title }}</h2>
+                                <h6 class="experiance">{{ GoogleTranslate::trans($about->badge_text, app()->getLocale()) }}</h6>
                             </div>
                         </div>
                     </div>
@@ -31,11 +31,11 @@
                 <div class="col-lg-6">
                     <div class="about-text">
                         <div class="section-title-one">
-                            <span class="sub-title uppercase no-after">À Propos de Nous</span>
-                            <h2 class="title">{{ $about->title }}</h2>
+                            <span class="sub-title uppercase no-after">{{ GoogleTranslate::trans('About Us', app()->getLocale()) }}</span>
+                            <h2 class="title">{{ GoogleTranslate::trans($about->title, app()->getLocale()) }}</h2>
                         </div>
                         <div class="about-details">
-                            {!! $about->description !!}
+                            {!! GoogleTranslate::trans($about->description, app()->getLocale()) !!}
                         </div>
                     </div>
                 </div>
@@ -55,8 +55,8 @@
             <div class="row">
                 <div class="col-lg-5 mx-auto">
                     <div class="section-title-one text-center">
-                        <span class="sub-title uppercase dark">Équipe active</span>
-                        <h2 class="title">Votre partenaire de confiance </h2>
+                        <span class="sub-title uppercase dark">{{ GoogleTranslate::trans('Équipe active', app()->getLocale()) }}</span>
+                        <h2 class="title">{{ GoogleTranslate::trans('Votre partenaire de confiance', app()->getLocale())}} </h2>
                     </div>
                 </div>
             </div>

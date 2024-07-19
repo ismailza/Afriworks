@@ -33,6 +33,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/contact-us/send', 'storeContact')->name('contact.store');
 });
 
+Route::controller(\App\Http\Controllers\LanguageController::class)->group(function () {
+    Route::post('/language/change', 'changeLanguage')->name('language.change');
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

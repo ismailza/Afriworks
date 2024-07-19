@@ -1,13 +1,13 @@
 @extends('layout.layout')
 
-@section('title', setting('site.title') . ' | Projets')
+@section('title', setting('site.title') . ' | '. GoogleTranslate::trans('Projects', app()->getLocale()))
 
 @section('content')
 
     <!-- breadcrumb part start -->
     <x-breadcrumb title="Projects">
-        <li><a href="/">Accueil</a></li>
-        <li>Projets</li>
+        <li><a href="/">{{ GoogleTranslate::trans('Accueil', app()->getLocale()) }}</a></li>
+        <li>{{ GoogleTranslate::trans('Projects', app()->getLocale()) }}</li>
     </x-breadcrumb>
 
     <!-- projects part start -->
@@ -17,7 +17,7 @@
                 <div class="col-lg-8">
                     <div class="blog-classic-main">
                         @forelse($projects as $project)
-                            <div class="blog-classic-item" data-title="{{ $project->name }}" data-service="{{ $project->service->name }}" data-excerpt="{{ $project->excerpt }}">
+                            <div class="blog-classic-item" data-title="{{ GoogleTranslate::trans($project->name, app()->getLocale()) }}" data-service="{{ GoogleTranslate::trans($project->service->name, app()->getLocale()) }}" data-excerpt="{{ GoogleTranslate::trans($project->excerpt, app()->getLocale()) }}">
                                 <div class="blog-image">
                                     <a href="{{ route('projects.show', $project->slug) }}" title="{{ $project->name }}" class="d-block w-100">
                                         <img src="{{ asset('storage/'. $project->image) }}" alt="{{ $project->name }}" class="img-fluid w-100">
@@ -25,18 +25,18 @@
                                 </div>
                                 <div class="blog-info">
                                     <h3 class="title">
-                                        <a href="{{ route('projects.show', $project->slug) }}" title="{{ $project->name }}">{{ $project->name }}</a>
+                                        <a href="{{ route('projects.show', $project->slug) }}" title="{{ $project->name }}">{{ GoogleTranslate::trans($project->name, app()->getLocale()) }}</a>
                                     </h3>
                                     <div class="blog-meta">
                                         <ul class="list-unstyled">
-                                            <li><a href="#" tabindex="0"> By admin</a></li>
-                                            <li><a href="{{ route('services.show', $project->service->slug) }}" tabindex="0"> {{ $project->service->name }}</a></li>
+                                            <li><a href="{{ route('about') }}" tabindex="0"> By admin</a></li>
+                                            <li><a href="{{ route('services.show', $project->service->slug) }}" tabindex="0"> {{ GoogleTranslate::trans($project->service->name, app()->getLocale()) }}</a></li>
                                         </ul>
                                     </div>
-                                    <p>{{ $project->excerpt }}</p>
+                                    <p>{{ GoogleTranslate::trans($project->excerpt, app()->getLocale()) }}</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="learn-more">
-                                            <a href="{{ route('projects.show', $project->slug) }}" class="common-btn uppercase">En savoir plus <i class="fas fa-plus"></i></a>
+                                            <a href="{{ route('projects.show', $project->slug) }}" class="common-btn uppercase">{{ GoogleTranslate::trans('En savoir plus', app()->getLocale()) }} <i class="fas fa-plus"></i></a>
                                         </div>
                                         <div class="share-now">
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(route('projects.show', $project->slug)) }}&title={{ urlencode($project->name) }}&source={{ urlencode(setting('site.title')) }}" target="_blank" rel="noopener noreferrer" class="share-icon"><i class="fas fa-share-alt"></i></a>
@@ -79,17 +79,17 @@
                         </div>
                         <div class="blog-widget">
                             <div class="title-block">
-                                <h4 class="title">Services</h4>
+                                <h4 class="title">{{ GoogleTranslate::trans('Services', app()->getLocale()) }}</h4>
                             </div>
                             <ul class="list-body list-unstyled">
                                 @foreach($services as $service)
-                                    <li><a href="{{ route('services.show', $service->slug) }}">{{ $service->name }}</a></li>
+                                    <li><a href="{{ route('services.show', $service->slug) }}">{{ GoogleTranslate::trans($service->name, app()->getLocale()) }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
                         <div class="blog-widget">
                             <div class="title-block">
-                                <h4 class="title">Projets récents</h4>
+                                <h4 class="title">{{ GoogleTranslate::trans('Projets récents', app()->getLocale()) }}</h4>
                             </div>
                             <div class="popular-post-main">
                                 @foreach($recentProjects as $project)
@@ -102,7 +102,7 @@
                                         <div class="text">
                                             <p><i class="fas fa-calendar-alt"></i> {{ $project->created_at->format('d F Y') }}</p>
                                             <h6 class="blog-title">
-                                                <a href="{{ route('projects.show', $project->slug) }}" class="d-block w-100" title="{{ $project->title }}">{{ $project->name }}</a>
+                                                <a href="{{ route('projects.show', $project->slug) }}" class="d-block w-100" title="{{ $project->title }}">{{ GoogleTranslate::trans($project->name, app()->getLocale()) }}</a>
                                             </h6>
                                         </div>
                                     </div>

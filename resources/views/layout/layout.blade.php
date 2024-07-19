@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title')</title>
-    <meta name="description" content="@hasSection('meta_description') @yield('meta_description') @else {{ setting('site.description') }} @endif">
+    <meta name="description" content="@hasSection('meta_description') @yield('meta_description') @else {{ GoogleTranslate::trans(setting('site.description'), app()->getLocale()) }} @endif">
     <meta name="keywords" content="@hasSection('meta_keywords') @yield('meta_keywords') @else {{ setting('site.keywords') }} @endif">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">

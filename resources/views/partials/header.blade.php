@@ -12,24 +12,35 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about') }}" title="À propos">À propos</a>
+                        <a class="nav-link" href="{{ route('about') }}" title="À propos">{{ GoogleTranslate::trans('À propos', app()->getLocale()) }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('services.index') }}" title="Services">Services</a>
+                        <a class="nav-link" href="{{ route('services.index') }}" title="Services">{{ GoogleTranslate::trans('Services', app()->getLocale()) }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('projects.index') }}" title="Projects">Projets</a>
+                        <a class="nav-link" href="{{ route('projects.index') }}" title="Projects">{{ GoogleTranslate::trans('Projets', app()->getLocale()) }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blogs.index') }}" title="Blogs">Blogs</a>
+                        <a class="nav-link" href="{{ route('blogs.index') }}" title="Blogs">{{ GoogleTranslate::trans('Blogs', app()->getLocale()) }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contact') }}" title="Contact">Contact</a>
+                        <a class="nav-link" href="{{ route('contact') }}" title="Contact">{{ GoogleTranslate::trans('Contact', app()->getLocale()) }}</a>
                     </li>
                 </ul>
                 <div class="header-right-info d-flex align-items-center">
                     <div class="social">
                         <ul class="list-unstyled">
+                            <!-- language switcher -->
+                            <li>
+                                <form action="{{ route('language.change') }}" method="post" class="d-flex align-items-center">
+                                    @csrf
+                                    <i class="fas fa-globe"></i>&nbsp;
+                                    <select name="language" id="language-switcher" class="form-select form-select-sm" aria-label="Language switcher">
+                                        <option value="fr" @if(app()->getLocale() === 'fr') selected disabled @endif>Français</option>
+                                        <option value="en" @if(app()->getLocale() === 'en') selected disabled @endif>English</option>
+                                    </select>
+                                </form>
+                            </li>
                             @if(setting('social-links.facebook_url'))<li><a href="{{ setting('social-links.facebook_url') }}"><i class="fab fa-facebook-f"></i></a></li>@endif
                             @if(setting('social-links.linkedin_url'))<li><a href="{{ setting('social-links.linkedin_url') }}"><i class="fab fa-linkedin-in"></i></a></li>@endif
                             @if(setting('social-links.linkedin_url'))<li><a href="{{ setting('social-links.instagram_url') }}"><i class="fab fa-instagram"></i></a></li>@endif
@@ -40,7 +51,7 @@
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="info">
-                            <p>Besoin d'aide?</p>
+                            <p>{{ GoogleTranslate::trans('Besoin d\'aide?', app()->getLocale()) }}</p>
                             <h6>
                                 <a href="tel:{{ setting('contact.phone') }}">
                                     {{ setting('contact.phone') }}
@@ -78,19 +89,19 @@
                 <div class="menu-list">
                     <ul class="list-unstyled">
                         <li class="sub-mobile-menu">
-                            <a class="nav-link" href="{{ route('about') }}" title="À propos">À propos</a>
+                            <a class="nav-link" href="{{ route('about') }}" title="À propos">{{ GoogleTranslate::trans('À propos', app()->getLocale()) }}</a>
                         </li>
                         <li class="sub-mobile-menu">
-                            <a class="nav-link" href="{{ route('services.index') }}" title="Services">Services</a>
+                            <a class="nav-link" href="{{ route('services.index') }}" title="Services">{{ GoogleTranslate::trans('Services', app()->getLocale()) }}</a>
                         </li>
                         <li class="sub-mobile-menu">
-                            <a class="nav-link" href="{{ route('projects.index') }}" title="Projets">Projets</a>
+                            <a class="nav-link" href="{{ route('projects.index') }}" title="Projects">{{ GoogleTranslate::trans('Projets', app()->getLocale()) }}</a>
                         </li>
                         <li class="sub-mobile-menu">
-                            <a class="nav-link" href="{{ route('blogs.index') }}" title="Blogs">Blogs</a>
+                            <a class="nav-link" href="{{ route('blogs.index') }}" title="Blogs">{{ GoogleTranslate::trans('Blogs', app()->getLocale()) }}</a>
                         </li>
                         <li class="sub-mobile-menu">
-                            <a class="nav-link" href="{{ route('contact') }}" title="Contactez-nous">Contact</a>
+                            <a class="nav-link" href="{{ route('contact') }}" title="Contact">{{ GoogleTranslate::trans('Contact', app()->getLocale()) }}</a>
                         </li>
                     </ul>
                 </div>
@@ -106,3 +117,13 @@
     </div>
     <!-- mobile navbar part end -->
 </header>
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('language-switcher').addEventListener('change', function () {
+                this.form.submit();
+            });
+        });
+    </script>
+@endpush
