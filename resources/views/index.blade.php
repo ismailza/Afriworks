@@ -59,7 +59,7 @@
                         </div>
                         <div class="about-details">
                             {!! GoogleTranslate::trans($about->description, app()->getLocale()) !!}
-                            <a href="{{ route('about') }}" class="common-btn uppercase" title="À propos de nous">{{ GoogleTranslate::trans('En savoir plus', app()->getLocale()) }}} <i class="fas fa-plus"></i></a>
+                            <a href="{{ route('about') }}" class="common-btn uppercase" title="À propos de nous">{{ GoogleTranslate::trans('En savoir plus', app()->getLocale()) }} <i class="fas fa-plus"></i></a>
                         </div>
                     </div>
                 </div>
