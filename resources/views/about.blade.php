@@ -22,8 +22,8 @@
                         <img src="{{ asset('storage/'. $about->image2) }}" alt="about-two-img-2" class="img-fluid w-100">
                         <div class="experiance-outside">
                             <div class="experiance-box">
-                                <h2 class="year">25</h2>
-                                <h6 class="experiance">Years Of experience</h6>
+                                <h2 class="year">{{ $about->badge_title }}</h2>
+                                <h6 class="experiance">{{ GoogleTranslate::trans($about->badge_text, app()->getLocale()) }}</h6>
                             </div>
                         </div>
                     </div>

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('image1');
             $table->string('image2');
+            $table->string('badge_title')->nullable();
+            $table->string('badge_text')->nullable();
             $table->timestamps();
         });
     }
